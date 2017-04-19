@@ -4,6 +4,9 @@
   "description": "Chat Server and Client for WarsawJS Workshop",
   "main": "client.js",
   "scripts": {
+    "db:clear": "rm -f ./db/chat_users.db",
+    "db:bootstrap": "knex migrate:latest --env production",
+    "db:rebuild": "npm run db:clear && npm run db:bootstrap",
     "server": "node ./server/server.js",
     "client": "node ./client.js"
   },
@@ -17,6 +20,9 @@
   "license": "ISC",
   "dependencies": {
     "ansi-color": "^0.2.1",
+    "bcryptjs": "^2.4.3",
+    "jwt-simple": "^0.5.1",
+    "knex": "^0.12.9",
     "socket.io": "^1.7.3",
     "socket.io-client": "^1.7.3"
   }
