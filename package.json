@@ -1,0 +1,23 @@
+{
+  "name": "chat-workshop",
+  "version": "1.0.0",
+  "description": "Chat Server and Client for WarsawJS Workshop",
+  "main": "client.js",
+  "scripts": {
+    "server": "node ./server/server.js",
+    "client": "node ./client.js"
+  },
+  "keywords": [
+    "chat",
+    "socket.io",
+    "warsawjs",
+    "workshop"
+  ],
+  "author": "Tomasz Marciszewski",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-color": "^0.2.1",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3"
+  }
+}
