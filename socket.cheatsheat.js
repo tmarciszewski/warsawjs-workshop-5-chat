@@ -1,11 +1,13 @@
+const io;
+const client;
 // sending to sender-client only
-client.emit('message', "this is a test");
+client.emit('message', 'this is a test');
 
 // sending to all clients, include sender
-io.emit('message', "this is a test");
+io.emit('message', 'this is a test');
 
 // sending to all clients except sender
-client.broadcast.emit('message', "this is a test");
+client.broadcast.emit('message', 'this is a test');
 
 // sending to all clients in 'game' room(channel) except sender
 client.broadcast.to('game').emit('message', 'nice game');

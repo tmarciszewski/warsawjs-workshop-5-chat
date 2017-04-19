@@ -1,11 +1,11 @@
 'use strict';
-var jwt = require('jwt-simple');
+const jwt = require('jwt-simple');
 
-var secret = require('./settings.js').authTokenSecret;
+const secret = require('./settings.js').authTokenSecret;
 
 module.exports = {
   get(user) {
-    var payload = {
+    const payload = {
       sub: user.id,
       user: {
         nick: user.username,
@@ -17,4 +17,4 @@ module.exports = {
 
     return jwt.encode(payload, secret);
   }
-}
+};
