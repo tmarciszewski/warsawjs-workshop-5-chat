@@ -55,14 +55,14 @@ readline.on('line', line => {
   }
 
   socket.emit('msg', { type: 'msg', message: line, token: authToken });
-  return readline.prompt(true);
+  readline.prompt(true);
 });
 
 socket.on('registered', data => {
   if (data.error) {
     return consoleOut(data.error);
   }
-  return consoleOut(data.success);
+  consoleOut(data.success);
 });
 
 socket.on('loggedin', data => {
@@ -74,7 +74,7 @@ socket.on('loggedin', data => {
   authToken = data.token;
 
   readline.setPrompt(color(`${nick}: `, 'red'));
-  return readline.prompt();
+  readline.prompt();
 });
 
 socket.on('msg', data => {
@@ -85,6 +85,7 @@ socket.on('cmd', data => {
   consoleOut(data);
 });
 
-console.log('Log in with command: /login <username>');
+console.log('Log in with command: /login <username> <password>');
+console.log('Register with command: /register <username> <password>');
 readline.prompt();
 

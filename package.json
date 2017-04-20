@@ -1,7 +1,7 @@
 {
   "name": "chat-workshop",
   "version": "1.0.0",
-  "description": "Chat Server and Client for WarsawJS Workshop",
+  "description": "Chat Server and Client example for WarsawJS Workshop #5",
   "main": "client.js",
   "scripts": {
     "db:clear": "rm -f ./db/chat_users.db",

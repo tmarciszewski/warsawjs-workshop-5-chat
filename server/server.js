@@ -5,6 +5,7 @@ const auth = require('./auth.js');
 const eventHandlers = require('./socketEventHandlers');
 
 io.on('connection', client => {
+  console.log('New client connected');
   client.on('login', data => eventHandlers.login(client, data));
   client.on('register', data => eventHandlers.register(client, data));
   client.on('cmd', auth(client, eventHandlers.cmd));

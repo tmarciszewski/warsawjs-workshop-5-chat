@@ -1,5 +1,5 @@
-const io;
-const client;
+const io // require('socket.io')() - whole namespace ;
+const client // or socket - one client connected to websocket;
 // sending to sender-client only
 client.emit('message', 'this is a test');
 

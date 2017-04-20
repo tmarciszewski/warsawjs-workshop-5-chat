@@ -25,9 +25,8 @@ module.exports = {
           return false;
         }
 
-        const userData = { username, password: hashPassword(password) };
         return db.table('users')
-          .insert(userData)
+          .insert({ username, password: hashPassword(password) })
           .then(insertedIDs => insertedIDs[0]);
       });
   },
@@ -35,11 +34,13 @@ module.exports = {
   loginUser(username, password) {
     return getUser(username)
       .then(dbUser => {
-        if (dbUser) {
-          return bcrypt.compareSync(password, dbUser.password) ? dbUser : false;
+        if (!dbUser) {
+          return false;
         }
-
-        return false;
+        
+        return bcrypt.compare(password, dbUser.password)
+            .then((res) => res ? dbUser : false)
+            .catch(() => false);
       });
   }
 };
