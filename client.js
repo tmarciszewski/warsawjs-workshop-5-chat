@@ -50,6 +50,7 @@ readline.on('line', line => {
     const cmd = line.match(/[a-z]+\b/)[0];
     const arg = line.substr(cmd.length + 2, line.length);
 
+    readline.prompt(true);
     return chatCommand(cmd, arg);
   }
 
